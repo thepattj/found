@@ -1,51 +1,136 @@
-*{
-	margin: 0px;
-	padding: 0px;
-	font-family: 'Pacifico', cursive;
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Pacifico', cursive;
 }
 
-.pantalla-inicio{
-	/*background-color: #FFCC66;*/
-	background-image: url('roman-arkhipov-123618.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	width: 100%;
-	height: 100%;
-	position: fixed;
+/*DIV*/
+.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9, .div10, .div11, .div12{
+    float: left; 
+	margin-right: 1%;
+	margin-bottom: 10px; 
+	box-sizing: border-box;
+}
+.div1{ width: 7.33%;}
+.div2{ width: 15.66%;}
+.div3{ width: 23.99%;}
+.div4{ width: 32.33%;}
+.div5{ width: 40.65%;}
+.div6{ width: 48.98%;}
+.div7{ width: 57.31%;}
+.div8{ width: 65.64%;}
+.div9{ width: 73.97%;}
+.div10{ width: 82.3%;}
+.div11{ width: 90.63%}
+.div12{ width: 99%}
+
+/*BUTTONS*/
+button{
+    height: 40px;
+    width: 60%;
+    border: 2px solid #99FFCC;
+    border-radius: 20px;
+    font-size: 1em;
+    outline: none;
+    background-color: #99FFCC;
 }
 
-.contenido{
-	background-color: transparent;
-	width: 100%;
-	height: 60%;
-	margin-top: 50%;
-	/*background-color: rgba(255,153,102,.4);*/
+
+input[type="text"], input[type="password"]{
+    float: left;
+	height: 30px;
+	font-size: 15px;
+    font-weight: 200;
+    box-sizing: border-box;
+    border-color: transparent;
+	border-radius: 2px;
+    border-bottom: 1px solid #35ACA7;
+	/*border: 1px solid #a8abb2;*/
+	background: rgba(255,255,204,.4);	
+	padding: 5px;
+	outline: none;	
+    transition: .5s all;
+    color:rgba(0,0,0,1);
+    
+    
+}
+/*Aparecer/Desaparecer*/
+.ver{
+    left: 0px;
+    visibility: visible !important;
+    transition: all 1.5s;
 }
 
-.filtro{
+.nver{
+    left: -360px;
+    visibility: hidden !important;
+     transition: all 1.5s;
+}
+
+.nver360{
+    left: 360px;
+    visibility: hidden !important;
+     transition: all 1.5s;
+}
+
+
+/*index.html*/
+
+.pantalla-inicio {
+    /*background-color: #FFCC66;*/
+    background-image: url('roman-arkhipov-123618.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.contenido {
+    background-color: transparent;
+    width: 100%;
+    height: 60%;
+    margin-top: 50%;
+    left: 0px;
+   visibility: visible;
+    position: fixed;
+}
+
+.sesion{
+    visibility: hidden;
+    position: fixed;
+    background-color: rgba(255,255,204,.2);
+    width: 100%;
+    height: 45%;
+    margin-top: 50%;
+    font-size: 1.5em;    
+}
+
+.filtro {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgba(255,255,255,.2);
+    background-color: rgba(255, 255, 255, .2);
+    z-index: -1; /*enviar la clase un espacio atras x, y, z*/
 }
 
-.pantalla-inicio h1{
-	text-align: center;
-	font-size: 3em;
-	margin-left: 30%;
-	float: left;   
+.pantalla-inicio h1 {
+    text-align: center;
+    font-size: 3em;
+    margin-left: 30%;
+    float: left;
 }
 
-.pantalla-inicio h3{
-	text-align: center;
-	font-size: 2.5em;
-	margin-left: 35%;
-	margin-top: .1px;
-	color: #FFFFCC;
-	float: left; 
+.pantalla-inicio h3 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-left: 35%;
+    margin-top: .1px;
+    color: #FFFFCC;
+    float: left;
 }
 
-.pantalla-inicio p{
+.pantalla-inicio p {
     width: 70%;
     margin-left: 35%;
     float: left;
@@ -54,30 +139,27 @@
     /*letter-spacing: px; separar las letras*/
     opacity: .5;
 }
-
-#comenzar{
-    height: 40px;
-    width: 60%;
+/*index*/
+#comenzar {
     margin-left: 20%;
     float: left;
-    border: 2px solid #FFFFCC;
     color: #FFFFCC;
     background: transparent;
-    border-radius: 20px;
-    font-size: 1.3em;
-    outline:none;
 }
 
-#sesion{
-    height: 40px;
-    width: 60%;
+#sesion {
     margin-left: 20%;
     margin-top: 10px;
     float: left;
-    border: 2px solid #FFFFCC;
+    border: 2px solid #99FFCC;
     color: black;
-    background: #FFFFCC;
-    border-radius: 20px;
-    font-size: 1.3em;
-    outline:none;
+    background: #99FFCC;
 }
+/*sesion*/
+#iniciar{
+    margin-left: 20%;
+    width: 55%;
+    font-size: .7em;
+}
+
+/*registro.phpa*/

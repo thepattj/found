@@ -4,21 +4,28 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="estilo.css">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <script src="js/funciones.js" ></script>
     </head>
     <body>
         <div class="pantalla-inicio">
             <div class="filtro"></div>
-            <div class="contenido">
+            <div id="contenido1" class="contenido">
                 <h1>Found</h1><br><h3>Food</h3>
                 <p>Toca comenzar </p>
-                <button id="comenzar" onclick="navegar('inicio.html')">Comenzar</button>
+                <button id="comenzar" onclick="inicio()">Comenzar</button>
                 <button id="sesion" onclick="cargarUsuario('registro.php')">Regristro</button>
+            </div>
+            <div id="contenido2" class="sesion nver">
+                <div class="div12"></div><div class="div12"></div><div class="div12"></div>
+                <div class="div12" style="margin-left:20%;">Correo </div>
+                <div class="div12" style="margin-left:20%;"><input type="text" placeholder="ejemplo@servidor.com" id="correo"> </div>
+                <div class="div12"></div>
+                <div class="div12" style="margin-left:20%;">Contraseña </div>
+                <div class="div12" style="margin-left:20%;"><input id="pass" type="password" placeholder=""> </div>
+                <div class="div12"></div>
+                <div class="div6"><button id="iniciar" onclick="login()">Iniciar</button></div>
+                <div class="div6"><button id="cancelar" onclick="cancelar()">Cancelar</button></div>
             </div>
         </div>
     </body>
-    <script>
-        function navegar(liga){
-            window.location.assign(liga);
-        }
-    </script>
 </html>
