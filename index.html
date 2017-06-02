@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="estilo.css">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    </head>
+    <body>
+        <div class="pantalla-inicio">
+            <div class="filtro"></div>
+            <div class="contenido">
+                <h1>Found</h1><br><h3>Food</h3>
+                <p>Toca comenzar </p>
+                <button id="comenzar" onclick="navegar('inicio.html')">Comenzar</button>
+                <button id="sesion" onclick="cargarUsuario('registro.php')">Regristro</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        function navegar(liga){
+            window.location.assign(liga);
+        }
+    </script>
+</html>
