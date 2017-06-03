@@ -1,18 +1,44 @@
+function pagina(liga){
+    window.location.assign(liga);
+}
+
 function inicio() {    
     paginaInicio = document.querySelector(".contenido");
     paginaSesion = document.querySelector(".sesion");
-    paginaInicio.classList.add("nver360");
+    paginaInicio.classList.add("nver");
+    paginaInicio.classList.remove("ver");
     paginaSesion.classList.add("ver");
     paginaSesion.classList.remove("nver");
-    paginaInicio.classList.remove("ver");
     
+    
+}
+
+function login(){
+    window.location.assign('principal.php');
 }
 
 function cancelar(){
     paginaInicio = document.querySelector(".contenido");
     paginaSesion = document.querySelector(".sesion");
     paginaInicio.classList.add("ver");
-    paginaSesion.classList.add("nver360");
+    paginaInicio.classList.remove("nver");
+    paginaSesion.classList.add("nver");
     paginaSesion.classList.remove("ver");
-    paginaInicio.classList.remove("nver360");
+    
 }
+
+function valida(e){
+	tecla = (document.all) ? e.keyCode : e.which;
+	patron = /[0-9]/;
+	tecla_final=String.fromCharCode(tecla);
+	return patron.test(tecla_final);
+}
+
+function guardar(){
+    window.location.assign('principal.php');
+}
+
+function regreso(){
+    window.location.assign('index.html')
+}
+

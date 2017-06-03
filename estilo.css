@@ -1,3 +1,10 @@
+/*
+COLORES
+blancos: #FFFFCC 255,255,204
+base: #FFCC66 255,204,102
+botones: #33CCCC
+links: #66CC99
+*/
 * {
     margin: 0px;
     padding: 0px;
@@ -28,25 +35,23 @@
 button{
     height: 40px;
     width: 60%;
-    border: 2px solid #99FFCC;
+    border: 2px solid #33CCCC;
     border-radius: 20px;
     font-size: 1em;
     outline: none;
-    background-color: #99FFCC;
+    background-color: #33CCCC;
 }
 
-
+/*INPUTS*/
 input[type="text"], input[type="password"]{
     float: left;
 	height: 30px;
 	font-size: 15px;
     font-weight: 200;
     box-sizing: border-box;
-    border-color: transparent;
-	border-radius: 2px;
-    border-bottom: 1px solid #35ACA7;
-	/*border: 1px solid #a8abb2;*/
-	background: rgba(255,255,204,.4);	
+	border-radius: 5px;
+	border: 1.5px solid #33CCCC;
+	background: rgba(255, 255, 255, .5);	
 	padding: 5px;
 	outline: none;	
     transition: .5s all;
@@ -54,25 +59,66 @@ input[type="text"], input[type="password"]{
     
     
 }
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    margin-left: 30%;
+    float: left;
+}
+
+h3 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-left: 35%;
+    margin-top: .1px;
+    color: #FFFFCC;
+    float: left;
+}
+
+h2{
+    text-align: center;
+    font: 1em;
+    margin-left: 10%;
+    margin-top: .1px;
+    color: #000000;
+    float: left;
+}
+
+p {
+    width: 70%;
+    margin-left: 35%;
+    float: left;
+    color: black;
+    font-size: 1em;
+    /*letter-spacing: px; separar las letras*/
+    opacity: .5;
+}
+
 /*Aparecer/Desaparecer*/
 .ver{
     left: 0px;
     visibility: visible !important;
     transition: all 1.5s;
 }
-
 .nver{
-    left: -360px;
-    visibility: hidden !important;
-     transition: all 1.5s;
-}
-
-.nver360{
     left: 360px;
     visibility: hidden !important;
-     transition: all 1.5s;
+    transition: all 1.5s;
 }
 
+nav{
+    width: 100%;
+    height: 30px;
+    background: #FFCC66;
+}
+
+footer{
+    width: 100%;
+    background: #FFCC66;
+    position: relative;
+    height: 35px;
+}
 
 /*index.html*/
 
@@ -91,15 +137,12 @@ input[type="text"], input[type="password"]{
     width: 100%;
     height: 60%;
     margin-top: 50%;
-    left: 0px;
-   visibility: visible;
     position: fixed;
 }
 
 .sesion{
-    visibility: hidden;
     position: fixed;
-    background-color: rgba(255,255,204,.2);
+    /*background-color: rgba(255,255,204,.2);*/
     width: 100%;
     height: 45%;
     margin-top: 50%;
@@ -114,32 +157,6 @@ input[type="text"], input[type="password"]{
     z-index: -1; /*enviar la clase un espacio atras x, y, z*/
 }
 
-.pantalla-inicio h1 {
-    text-align: center;
-    font-size: 3em;
-    margin-left: 30%;
-    float: left;
-}
-
-.pantalla-inicio h3 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-left: 35%;
-    margin-top: .1px;
-    color: #FFFFCC;
-    float: left;
-}
-
-.pantalla-inicio p {
-    width: 70%;
-    margin-left: 35%;
-    float: left;
-    color: black;
-    font-size: 1em;
-    /*letter-spacing: px; separar las letras*/
-    opacity: .5;
-}
-/*index*/
 #comenzar {
     margin-left: 20%;
     float: left;
@@ -147,19 +164,57 @@ input[type="text"], input[type="password"]{
     background: transparent;
 }
 
-#sesion {
+#registro {
     margin-left: 20%;
     margin-top: 10px;
     float: left;
-    border: 2px solid #99FFCC;
     color: black;
-    background: #99FFCC;
 }
+
 /*sesion*/
-#iniciar{
+#iniciar, #cancelar{
     margin-left: 20%;
     width: 55%;
     font-size: .7em;
 }
 
-/*registro.phpa*/
+/*registro.php*/
+.pantalla-reg{
+    width: 100%;
+    height: calc(100% - 65px);
+    background: #FFFFCC;
+}
+
+.pantalla-reg input{
+    width: 99%;
+}
+
+#ima1{
+    width: 30px;
+    height: 30px;
+    margin-left: 3px;
+}
+
+/*principal.php*/
+.mapa{
+    width: 100%;
+    height: calc(100% - 65px);
+    background: red;
+}
+
+nav img{
+    width: 30px;
+    height: 30px;
+    margin-left: calc(49.5% - 25px);
+}
+
+footer img{
+    width: 35px;
+    height: 35px;
+    margin-left: calc(49.5% - 25px);
+}
+
+#imagenb{
+    filter: invert(90%);
+    filter: saturate(-800%);
+}
