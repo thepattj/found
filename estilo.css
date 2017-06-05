@@ -12,7 +12,7 @@ links: #66CC99
 }
 
 /*DIV*/
-.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9, .div10, .div11, .div12{
+.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9, .div10, .div11, .div12, .divfooter{
     float: left; 
 	margin-right: 1%;
 	margin-bottom: 10px; 
@@ -28,8 +28,10 @@ links: #66CC99
 .div8{ width: 65.64%;}
 .div9{ width: 73.97%;}
 .div10{ width: 82.3%;}
-.div11{ width: 90.63%}
-.div12{ width: 99%}
+.div11{ width: 90.63%;}
+.div12{ width: 99%;}
+
+.divfooter{ width: 19%; }
 
 /*BUTTONS*/
 button{
@@ -199,22 +201,27 @@ footer{
 .mapa{
     width: 100%;
     height: calc(100% - 65px);
-    background: red;
+    /*background: red;*/
+    position: fixed;
 }
 
-nav img{
-    width: 30px;
-    height: 30px;
-    margin-left: calc(49.5% - 25px);
+.buscador{
+    position: absolute;
+    top: 45px;
+    z-index: 99;
+    width: 99%;
+    background-color: transparent;
 }
 
+.buscador input{
+    width: 70%;
+    margin-left: 50px;
+}
 footer img{
-    width: 35px;
-    height: 35px;
-    margin-left: calc(49.5% - 25px);
+    width: 25px;
+    height: 25px;
+    margin-left: 16px;
+    margin-top: 5px;
 }
 
-#imagenb{
-    filter: invert(90%);
-    filter: saturate(-800%);
-}
+

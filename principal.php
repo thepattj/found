@@ -9,61 +9,48 @@
    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASQKvbTGUZ1Ds6TTJJXJAuicT0ejXwNpw">
     </script>
 </head>
-<nav>
-    <div class="div4">
-        <img id="imagenc" src="img/car1.png">
-    </div>
-    <div class="div4">
-        <img id="imagens" src="img/sett1.png">
-    </div>
-    <div class="div4">
-        <img onclick="regreso()" id="imagenr" src="img/atras2.png">
-    </div>
-</nav>
-
 <body>
     <div class="buscador">
         <input type="text" placeholder="calle, numero, estado" id="direccion2">
     </div>
-    <div class="mapa"></div>
+    <div id="map" class="mapa"></div>
 </body>
 <footer>
-    <div class="div6">
-        <img id="imagenb" src="img/bru2.png">
+    <div class="divfooter">
+        <img id="imagenb" src="img/bru1.png">
     </div>
-    <div class="div6">
-        <img id="imagenl" src="img/list.png">
+    <div class="divfooter">
+        <img id="imagenl" src="img/list4.png">
+    </div>
+    <div class="divfooter">
+        <img id="imagenc" src="img/car2.png">
+    </div>
+    <div class="divfooter">
+        <img id="imagens" src="img/sett2.png">
+    </div>
+    <div class="divfooter">
+        <img onclick="regreso()" id="imagenr" src="img/atras2.png">
     </div>
 </footer>
 </html>
 
 
-<script>
-    var map = null;
-	var marker = null;
-	var geocoder = new google.maps.Geocoder();
-    
-    function load_mapDO(){
-        var myLatlng = new google.maps.LatLng(20.5920203, -100.39190329999997);
-		var myOptions = {
-			zoom: 14,
-			center: myLatlng,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-        var markerOptions = {
-			position: myLatlng,
-			draggable: true,
-			title: "Ubicación"
-		}
-        map = new google.maps.Map(document.getElementById("mapa"), myOptions);
-        marker = new google.maps.Marker(markerOptions);
-		marker.setMap(map);
-        
-        google.maps.event.addListener(marker, 'dragend', function(a) {
-				lati= marker.getPosition().lat();
-				long = marker.getPosition().lng();
-				var linea = lati+", "+long;
-		});
-    
-    }
-</script>
+ <script>
+
+    //AGREGAR FUNCION DE LA GEOLOCALIZACION QUE DARA LA VARIABLE ULURU
+      function initMap() {
+        var uluru = {lat: 20.7045399, lng: -100.4433768};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: uluru
+        });
+
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtVWb6XTC-uO4jh4YlVmeDA44ojeQ-5qQ&callback=initMap">
+    </script>
