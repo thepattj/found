@@ -25,15 +25,15 @@
             <div class="div12"></div>
 
             <div class="div4">Contrasena</div><div class="div4"></div>
-            <div class="div8"><input type="text" placeholder="Al menos 6 caracteres" id="pass"> </div>
+            <div class="div8"><input type="password" placeholder="Al menos 6 caracteres" id="pass"> </div>
             <div class="div12"></div>
 
             <div class="div4">Dirección</div>
-            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion"> </div>
+            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion" onclick="getDireccion()"> </div>
             <div class="div12"></div>
 
             <div class="div4">Numero Telefonico</div>
-            <div class="div8"><input maxlength="25" onkeypress="return valida(event)" type="text" placeholder="10 Digitos" id="telefono"></div>
+            <div class="div8"><input maxlength="25" type="text" placeholder="10 Digitos" id="telefono"></div>
             <div class="div12"></div>
 
             <div class="div4">Etiqueta de Direccion</div>
@@ -41,9 +41,12 @@
             <div class="div12"></div>
             <div class="div4"></div><div class="div6"><button onclick="guardar()">Guardar</button></div>
         </form>
+
     </div>
 </body>
-<footer>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSMBr3VrhTjzUOGe0kKcOyj7u-h5--fok&callback=initMap"
+  type="text/javascript"></script>
+  <footer>
     Aviso de Privacidad Terminos y condiciones FF© 2017
 </footer>
 </html>

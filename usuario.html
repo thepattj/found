@@ -25,24 +25,27 @@
             <div class="div12"></div>
 
             <div class="div4">Contrasena</div><div class="div4"></div>
-            <div class="div8"><input type="text" placeholder="Al menos 6 caracteres" id="pass"> </div>
+            <div class="div8"><input type="password" placeholder="Al menos 6 caracteres" id="pass"> </div>
             <div class="div12"></div>
 
             <div class="div4">Dirección</div>
-            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion"> </div>
+            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="dir1"> </div>
             <div class="div12"></div>
             
             <div class="div4">Dirección 2</div>
-            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion"> </div>
+            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="dir2"> </div>
             <div class="div12"></div>
             
             <div class="div4">Dirección 3</div>
-            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion"> </div>
+            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="dir3"> </div>
             <div class="div12"></div>
 
             <div class="div12"></div>
-            <div class="div4"></div><div class="div6"><button onclick="guardarnuevo()">Guardar</button></div>
+            <div class="div4"></div><div class="div6"><button onclick="guardarNuevo()">Guardar</button></div>
         </form>
     </div>
 </body>
+<script>
+    window.addEventListener('load',cargarDatos,true);
+</script>
 </html>
