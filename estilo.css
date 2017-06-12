@@ -381,22 +381,46 @@ footer img{
 /*mapa.php*/
 .mapa{
     width: 100%;
-    height: calc(100% - 65px);
+    height: 100%;
+    position: absolute;
+    float: left;
     /*background: red;*/
-    position: fixed;
 }
 
 .buscador{
     position: absolute;
     top: 45px;
     z-index: 99;
-    width: 99%;
+    width:74.25%;
     background-color: transparent;
 }
 
+.botonbuscador{
+    position: absolute;
+    top: 45px;
+    z-index: 99;
+    width: 85px;
+    /*background-color: red !important;*/
+    left: 74.25%;
+}
+
+.botonok{
+    position: absolute;
+    top: 45px;
+    z-index: 99;
+    width: 22.33%;
+    background-color: transparent;
+    left: 64%;
+}
+
 .buscador input{
-    width: 70%;
-    margin-left: 50px;
+    width: 100%;
+}
+
+.botonbuscador img{
+    height: 30px;
+    width: 30px;
+    margin-left: 28px;
 }
 
 

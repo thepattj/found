@@ -30,6 +30,7 @@
 
             <div class="div4">Dirección</div>
             <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion" onclick="getDireccion()"> </div>
+            <!-- AQUI DEBES PONER EN VEZ DE ONCLICK="GETDIRECCION" PONES UN ONCLICK="PAGINA('MAPA.HTML')" -->
             <div class="div12"></div>
 
             <div class="div4">Numero Telefonico</div>

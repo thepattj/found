@@ -10,31 +10,111 @@
     </script>
 </head>
 <body>
-    <div class="buscador">
-        <input type="text" placeholder="calle, numero, estado" id="direccion2">
+  <div class="div12">
+     <div class="buscador">
+        <input type="text" placeholder="calle, numero, estado" id="dirr">
     </div>
-    <div id="map" class="mapa"></div>
+    <div class="botonbuscador">
+      <img src="img/buscar1.png" onclick="buscarDireccion()">
+    </div>
+    
+  </div>
+    
+  <div id="map" class="mapa"></div>
 </body>
 
 </html>
 
 
- <script>
+<script>
+  window.onload = geoloca; // MANDAR A HABLAR CON EL FUNCIONES.... O SE DEJA PARA SOLO HABLARLE A ESTE HTML
+  /*window.onload = obtenerdireccion;*/
+    
+  var map = null;
+  var marker = null;
+  var geocoder = new google.maps.Geocoder();
+  
+  function geoloca(){ //FUNCION DE LA GEOLOCALIZACION QUE DARA LA VARIABLE ULURU
+    navigator.geolocation.getCurrentPosition(initMap);
+    /*navigator.geolocation.getCurrentPosition(obtenerdireccion);*/
+  }
 
-    //AGREGAR FUNCION DE LA GEOLOCALIZACION QUE DARA LA VARIABLE ULURU
-      function initMap() {
-        var uluru = {lat: 20.7045399, lng: -100.4433768};
-        var map = new google.maps.Map(document.getElementById('map'), {
+  function initMap(coordenadas) {
+    /*var uluru = {lat: coordenadas.coords.latitude, lng: coordenadas.coords.longitude};*/
+    var myLatlng = new google.maps.LatLng(coordenadas.coords.latitude, coordenadas.coords.longitude);
+    var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
-          center: uluru
+          center: myLatlng
         });
 
         var marker = new google.maps.Marker({
-          position: uluru,
+          position: myLatlng,
           map: map
         });
+  }
+
+  function buscarDireccion(){
+    /*alert('funciona');*/
+    var direccion = document.getElementById("dirr").value;
+    geocoder.geocode({'address': direccion}, geocodeResultDO);
+    /*alert(direccion);*/
+  }
+
+  function geocodeResultDO(results, status){
+    /*alert(status);
+    alert(results);*/
+    if(status == 'OK'){
+      var mapOptions = {
+        center: results[0].geometry.location,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      map.fitBounds(results[0].geometry.viewport);
+
+      var marker = new google.maps.Marker({
+      position: results[0].geometry.location,
+      map: map,
+      title: 'Domicilio'
+      });
+
+      /*var marker = new google.maps.Marker({
+      position: results[0].geometry.location,
+      title:"Domicilio"
+      });
+
+      // To add the marker to the map, call setMap();
+      marker.setMap(map);*/
+
+      /*var markerOptions = {
+        position: results[0].geometry.location,
+        draggable: true,
+        title: "Ubicación"
       }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtVWb6XTC-uO4jh4YlVmeDA44ojeQ-5qQ&callback=initMap">
-    </script>
+      marker = new google.maps.Marker(markerOptions);
+      marker.setMap(map);*/
+    }else{
+      alert("No se pudo encontrar la ubicacion"+status);
+    }
+  }
+
+  /*function obtenerdireccion(coordenadas){
+    var latlng = new google.maps.LatLng(coordenadas.coords.latitude, coordenadas.coords.longitude);
+    alert(latlng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+          if (results[0]) {
+            //cambia el zoom del mapa
+            map.fitBounds(results[0].geometry.viewport);            
+            document.getElementById("dirr").value = (results[0].formatted_address);
+            map.setCenter(marker.getPosition());
+            //alert(marker.getPosition());
+          } else {
+              alert('No se encontraron resultados');
+          }
+      } else {
+        load_mapDO();
+          alert('Geocoder falló: ' + status);
+      }
+    }); 
+  }*/
+</script>
