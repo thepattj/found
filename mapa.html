@@ -16,31 +16,29 @@
     </div>
     <div class="botonbuscador">
       <img src="img/buscar1.png" onclick="buscarDireccion()">
-    </div>
-    
+    </div>    
   </div>
     
   <div id="map" class="mapa"></div>
+  <div class="div2"></div><div class="div6"><button onclick="aceptar()" id="botonAceptar">Aceptar</button></div><div class="div4"></div>
 </body>
 
 </html>
 
 
 <script>
-  window.onload = geoloca; // MANDAR A HABLAR CON EL FUNCIONES.... O SE DEJA PARA SOLO HABLARLE A ESTE HTML
+  window.onload = geoloca; // cargar esta funcion enseguida del dom
   /*window.onload = obtenerdireccion;*/
     
   var map = null;
   var marker = null;
   var geocoder = new google.maps.Geocoder();
   
-  function geoloca(){ //FUNCION DE LA GEOLOCALIZACION QUE DARA LA VARIABLE ULURU
+  function geoloca(){ //FUNCION DE LA GEOLOCALIZACION QUE DARA LA VARIABLE myLatlng
     navigator.geolocation.getCurrentPosition(initMap);
-    /*navigator.geolocation.getCurrentPosition(obtenerdireccion);*/
   }
 
-  function initMap(coordenadas) {
-    /*var uluru = {lat: coordenadas.coords.latitude, lng: coordenadas.coords.longitude};*/
+  function initMap(coordenadas) { //FUNCION QUE CARGA EL MAPA CON LA GEOLOCALIZACION ACTUAL
     var myLatlng = new google.maps.LatLng(coordenadas.coords.latitude, coordenadas.coords.longitude);
     var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
@@ -51,16 +49,25 @@
           position: myLatlng,
           map: map
         });
+    geocoder.geocode({'latLng': myLatlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        if (results[0]) {
+          /*console.log(results[0].formatted_address);*/
+          var direccioNueva = results[0].formatted_address;
+          document.getElementById("dirr").value = direccioNueva;
+        }
+      }
+    });
   }
 
-  function buscarDireccion(){
+  function buscarDireccion(){ //FUNCION QUE TOMA LA DIRECCION ESCRITA EN EL INPUT Y BUSCA POR GEOCODER
     /*alert('funciona');*/
     var direccion = document.getElementById("dirr").value;
     geocoder.geocode({'address': direccion}, geocodeResultDO);
     /*alert(direccion);*/
   }
 
-  function geocodeResultDO(results, status){
+  function geocodeResultDO(results, status){ //FUNCION QUE REGRESA EL JSON Y DEVUELVE LOS DATOS DE DIRECCION CON EL MARCADOR
     /*alert(status);
     alert(results);*/
     if(status == 'OK'){
@@ -70,51 +77,26 @@
       };
       map = new google.maps.Map(document.getElementById('map'), mapOptions);
       map.fitBounds(results[0].geometry.viewport);
-
+      posicion = results[0].geometry.location;
       var marker = new google.maps.Marker({
       position: results[0].geometry.location,
       map: map,
       title: 'Domicilio'
       });
-
-      /*var marker = new google.maps.Marker({
-      position: results[0].geometry.location,
-      title:"Domicilio"
-      });
-
-      // To add the marker to the map, call setMap();
-      marker.setMap(map);*/
-
-      /*var markerOptions = {
-        position: results[0].geometry.location,
-        draggable: true,
-        title: "Ubicación"
-      }
-      marker = new google.maps.Marker(markerOptions);
-      marker.setMap(map);*/
+      //FUNCION PARA PODER TOMAR LA DIRECCION DE EL POSICION
+      geocoder.geocode({'latLng': posicion}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+              /*console.log(results[0].formatted_address);*/
+              var direccioNueva = results[0].formatted_address;
+              document.getElementById("dirr").value = direccioNueva;
+            }
+          }
+        });
     }else{
       alert("No se pudo encontrar la ubicacion"+status);
     }
   }
 
-  /*function obtenerdireccion(coordenadas){
-    var latlng = new google.maps.LatLng(coordenadas.coords.latitude, coordenadas.coords.longitude);
-    alert(latlng);
-    geocoder.geocode({'latLng': latlng}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-          if (results[0]) {
-            //cambia el zoom del mapa
-            map.fitBounds(results[0].geometry.viewport);            
-            document.getElementById("dirr").value = (results[0].formatted_address);
-            map.setCenter(marker.getPosition());
-            //alert(marker.getPosition());
-          } else {
-              alert('No se encontraron resultados');
-          }
-      } else {
-        load_mapDO();
-          alert('Geocoder falló: ' + status);
-      }
-    }); 
-  }*/
+  
 </script>

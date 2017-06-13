@@ -2,42 +2,38 @@ function pagina(liga){
     window.location.assign(liga);
 }
 
-function inicio() {    
+function inicio() {    //FUNCION PARA HACER LA TRANSICION DEL CONTENIDO DE INICIAR SESION
     paginaInicio = document.querySelector(".contenido");
     paginaSesion = document.querySelector(".sesion");
     paginaInicio.classList.add("nver");
     paginaInicio.classList.remove("ver");
     paginaSesion.classList.add("ver");
-    paginaSesion.classList.remove("nver");
-    
-    
+    paginaSesion.classList.remove("nver");    
 }
 
-function login(){
+function login(){ //FUNCION PARA PODER INICIAR SESION
     correo = document.getElementById('correo').value;
     pass = document.getElementById('pass').value;
-
     if (escorreo(correo) && pass.length>0){
         if(correo==localStorage.getItem('correo') && pass==localStorage.getItem('password')){
-                alert("Bienvenido "+localStorage.getItem('nombre'));
-                window.location.assign('principal.php');
-            }else{
-                alert("Datos Incorrectos");
-            }
+            alert("Bienvenido "+localStorage.getItem('nombre'));
+            window.location.assign('principal.php');
+        }else{
+            alert("Datos Incorrectos");
         }
+    }
 }
 
-function cancelar(){
+function cancelar(){ //FUNCION PARA HACER LA TRANSICION DEL CONTENIDO DE INICIO SESION
     paginaInicio = document.querySelector(".contenido");
     paginaSesion = document.querySelector(".sesion");
     paginaInicio.classList.add("ver");
     paginaInicio.classList.remove("nver");
     paginaSesion.classList.add("nver");
-    paginaSesion.classList.remove("ver");
-    
+    paginaSesion.classList.remove("ver");    
 }
 
-function estelefono(no){
+function estelefono(no){ //FUNCION PARA VALIDAR TELEFONO
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
     if(no.match(phoneno)){
         return true;
@@ -47,7 +43,7 @@ function estelefono(no){
     }
 }
 
-function escorreo(cor){
+function escorreo(cor){ //FUNCION PARA VALIDAR CORREO
     if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(cor)){
         return true;
     }
@@ -56,7 +52,7 @@ function escorreo(cor){
     }
 }
 
-function guardar(){
+function guardar(){ //FUNUCION QUE GUARDA EN LOCALSTORAGE EL REGISTRO
     nombre = document.getElementById('nombre').value;
     correo = document.getElementById('correo').value;
     pass = document.getElementById('pass').value;
@@ -76,35 +72,7 @@ function guardar(){
     }
 }
 
-function regreso(){
-    window.location.assign('index.html')
-}
-
-function getDireccion(){
-    dire = document.getElementById('direccion').value;
-    if (dire=="") {
-    navigator.geolocation.getCurrentPosition(
-        function( position ){ // success cb
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
-            var google_map_position = new google.maps.LatLng( lat, lng ); 
-             var google_maps_geocoder = new google.maps.Geocoder();
-                google_maps_geocoder.geocode(
-                    { 'latLng': google_map_position },
-                    function( results, status ) {
-                        if ( status == google.maps.GeocoderStatus.OK && results[0] ) {
-                            document.getElementById('direccion').value=( results[0].formatted_address );
-                        }
-                    }
-                );
-            },
-        function(){ // fail cb
-        }
-    ); 
-    }
-}
-
-function cargarDatos(){
+function cargarDatos(){ //funcion para cargar los datos del localstorage en usuario.html
     nombre = localStorage.getItem('nombre');
     correo = localStorage.getItem('correo');
     pass = localStorage.getItem('password');
@@ -120,7 +88,7 @@ function cargarDatos(){
     document.getElementById('dir3').value=dir3;
 }
 
-function guardarNuevo(){
+function guardarNuevo(){ //funcion para guardar los datos al localstorage en usuario.html
 
     nombre=document.getElementById('nombre').value;
     correo=document.getElementById('correo').value;

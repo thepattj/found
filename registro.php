@@ -7,13 +7,14 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <script src="js/funciones.js"></script>
 </head>
-<nav>
-   <img id="ima1" onclick="regreso()" src="img/atras1.png">
-</nav>
+<!--<nav>
+   <img id="ima1" src="img/atras1.png">
+</nav>-->
 
 <body>
     <div class="pantalla-reg">
        <div class="div3"></div><div class="div4"><h2>REGISTRATE</h2></div><div class="div4"></div><div class="div12"></div>
+       <div class="filtro"></div>
        
         <form onsubmit="return false">
             <div class="div4">Nombre</div>
@@ -29,7 +30,7 @@
             <div class="div12"></div>
 
             <div class="div4">Dirección</div>
-            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion" onclick="getDireccion()"> </div>
+            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion" onclick="pagina('mapa.html')"> </div>
             <!-- AQUI DEBES PONER EN VEZ DE ONCLICK="GETDIRECCION" PONES UN ONCLICK="PAGINA('MAPA.HTML')" -->
             <div class="div12"></div>
 
@@ -40,14 +41,11 @@
             <div class="div4">Etiqueta de Direccion</div>
             <div class="div8"><input type="text" placeholder="Maximo 25 caracteres"></div><div class="div4"></div>
             <div class="div12"></div>
-            <div class="div4"></div><div class="div6"><button onclick="guardar()">Guardar</button></div>
+            <div class="div3"></div><div class="div4"><button onclick="pagina('index.html')">Regresar</button></div><div class="div4"><button onclick="guardar()">Guardar</button></div>
         </form>
 
     </div>
 </body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSMBr3VrhTjzUOGe0kKcOyj7u-h5--fok&callback=initMap"
   type="text/javascript"></script>
-  <footer>
-    Aviso de Privacidad Terminos y condiciones FF© 2017
-</footer>
 </html>

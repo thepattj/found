@@ -85,6 +85,9 @@ h3 {
     color: #FFFFCC;
     float: left;
 }
+#segundo{
+    margin-top: -23.9px;
+}
 
 h4{
     text-align: center;
@@ -203,17 +206,27 @@ footer img{
 .pantalla-reg{
     width: 100%;
     height: calc(100% - 30px);
-    background: #FFFFCC;
+    background-image: url('img/roman-arkhipov-123618.jpg');
+    background-size: cover;
+    color: #FFFFCC;
 }
 
 .pantalla-reg input{
     width: 99%;
 }
 
+.pantalla-reg h2{
+    color: #FFFFCC;    
+}
+
 #ima1{
     width: 30px;
     height: 30px;
     margin-left: 3px;
+}
+
+nav{
+    background: transparent;
 }
 
 
@@ -387,6 +400,12 @@ footer img{
     /*background: red;*/
 }
 
+#botonAceptar{
+    position: absolute;
+    z-index: 99;
+    top: 85%;
+}
+
 .buscador{
     position: absolute;
     top: 45px;
@@ -403,16 +422,6 @@ footer img{
     /*background-color: red !important;*/
     left: 74.25%;
 }
-
-.botonok{
-    position: absolute;
-    top: 45px;
-    z-index: 99;
-    width: 22.33%;
-    background-color: transparent;
-    left: 64%;
-}
-
 .buscador input{
     width: 100%;
 }
