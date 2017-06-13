@@ -20,7 +20,7 @@
   </div>
     
   <div id="map" class="mapa"></div>
-  <div class="div2"></div><div class="div6"><button onclick="aceptar()" id="botonAceptar">Aceptar</button></div><div class="div4"></div>
+  <div class="div2"></div><div class="div6"><button onclick="guardarDir()" id="botonAceptar">Aceptar</button></div><div class="div4"></div>
 </body>
 
 </html>
@@ -97,6 +97,11 @@
       alert("No se pudo encontrar la ubicacion"+status);
     }
   }
-
+function guardarDir(){
+  direccioNueva=document.getElementById("dirr").value;
+  idDir=localStorage.getItem('dirACamb');
+  localStorage.setItem(idDir,direccioNueva);
+  window.history.back();
+}
   
 </script>

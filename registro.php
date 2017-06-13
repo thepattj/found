@@ -30,7 +30,7 @@
             <div class="div12"></div>
 
             <div class="div4">Dirección</div>
-            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="direccion" onclick="pagina('mapa.html')"> </div>
+            <div class="div8"><input type="text" placeholder="presiona aqui para ingresar" id="dir1" onclick="irAMapa(this.id)"> </div>
             <!-- AQUI DEBES PONER EN VEZ DE ONCLICK="GETDIRECCION" PONES UN ONCLICK="PAGINA('MAPA.HTML')" -->
             <div class="div12"></div>
 
@@ -38,8 +38,6 @@
             <div class="div8"><input maxlength="25" type="text" placeholder="10 Digitos" id="telefono"></div>
             <div class="div12"></div>
 
-            <div class="div4">Etiqueta de Direccion</div>
-            <div class="div8"><input type="text" placeholder="Maximo 25 caracteres"></div><div class="div4"></div>
             <div class="div12"></div>
             <div class="div3"></div><div class="div4"><button onclick="pagina('index.html')">Regresar</button></div><div class="div4"><button onclick="guardar()">Guardar</button></div>
         </form>
@@ -48,4 +46,7 @@
 </body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSMBr3VrhTjzUOGe0kKcOyj7u-h5--fok&callback=initMap"
   type="text/javascript"></script>
+  <script>
+    window.addEventListener('load',cargarDatosReg,true);
+</script>
 </html>

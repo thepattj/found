@@ -11,23 +11,59 @@
 <body>
     <div class="pantalla-menu">
        <div class="divtitulom"> <h4>PLATILLOS</h4></div>
-        <div class="elemento">
-            <div class="elemento-titulo"> PLATILLO</div>
-            <div class="elemento-precio"> $$$ </div>
-            <div class="elemento-ing"> INGREDIENTES </div>
-            <div class="elemento-carr" onclick="agregarcarrito()"><img src="img/car2.png"> </div>
+        <div class="elemento" id="hamburguesa">
+            <div class="elemento-titulo" > Hamburguesa</div>
+            <div class="elemento-precio"> $79 </div>
+            <div class="elemento-ing"> Hamburguesa doble con lechuga, tomate, carne de res y aderezos </div>
+            <div class="elemento-carr" onclick="agregarcarrito('hamburguesa')"><img src="img/car2.png"> </div>
+        </div>
+        <div class="elemento" id="pizza">
+            <div class="elemento-titulo"> Pizza Individual</div>
+            <div class="elemento-precio"> $49 </div>
+            <div class="elemento-ing"> Pizza sencilla de pepperoni, hawaiiana o vegetariana </div>
+            <div class="elemento-carr" onclick="agregarcarrito('pizza')"><img src="img/car2.png"> </div>
+        </div>
+        <div class="elemento" id="ensalada">
+            <div class="elemento-titulo"> Ensalada</div>
+            <div class="elemento-precio"> $85 </div>
+            <div class="elemento-ing"> Lechuga, tomate, aguacate, pechuga de pollo o cubos de queso </div>
+            <div class="elemento-carr" onclick="agregarcarrito('ensalada')"><img src="img/car2.png"> </div>
+        </div>
+        <div class="elemento" id="ribeye">
+            <div class="elemento-titulo"> Rib-Eye</div>
+            <div class="elemento-precio"> $245 </div>
+            <div class="elemento-ing"> Excelente corte de carne de Res de la mas alta calidad </div>
+            <div class="elemento-carr" onclick="agregarcarrito('ribeye')"><img src="img/car2.png"> </div>
+        </div>
+        <div class="elemento" id="enchiladas">
+            <div class="elemento-titulo"> Enchiladas de pollo</div>
+            <div class="elemento-precio"> $120 </div>
+            <div class="elemento-ing"> Riquisimas enchiladas de pollo, con salsa verde, roja o suizas </div>
+            <div class="elemento-carr" onclick="agregarcarrito('enchiladas')"><img src="img/car2.png"> </div>
+        </div>
+        <div class="elemento" id="molletes">
+            <div class="elemento-titulo"> Molletes</div>
+            <div class="elemento-precio"> $39 </div>
+            <div class="elemento-ing"> Dos sencillos molletes, con frijoles, queso y una riquisima salsa roja </div>
+            <div class="elemento-carr" onclick="agregarcarrito('molletes')"><img src="img/car2.png"> </div>
+        </div>
+        <div class="elemento" id="quesadillas">
+            <div class="elemento-titulo"> Quesadillas</div>
+            <div class="elemento-precio"> $30 </div>
+            <div class="elemento-ing"> Orden de tres quesadillas con queso </div>
+            <div class="elemento-carr" onclick="agregarcarrito('quesadillas')"><img src="img/car2.png"> </div>
         </div>
     </div>
 </body>
 <footer>
     <div class="div3">
-        <img id="imagenb" src="img/car2.png">
+        <img onclick="pagina('carrito.html')" id="imagenl" src="img/car2.png">
     </div>
     <div class="div3">
-        <img id="imagenl" src="img/list4.png">
+        <img onclick="pagina('pedido.html')" id="imagenl" src="img/list4.png">
     </div>
     <div class="div3">
-        <img id="imagens" src="img/user1.png">
+        <img onclick="pagina('usuario.html')" id="imagens" src="img/user1.png">
     </div>
     <div class="div3">
         <img onclick="pagina('principal.php')" id="imagenr" src="img/atras1.png">

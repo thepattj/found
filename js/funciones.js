@@ -17,6 +17,7 @@ function login(){ //FUNCION PARA PODER INICIAR SESION
     if (escorreo(correo) && pass.length>0){
         if(correo==localStorage.getItem('correo') && pass==localStorage.getItem('password')){
             alert("Bienvenido "+localStorage.getItem('nombre'));
+            localStorage.setItem('sesion',true);
             window.location.assign('principal.php');
         }else{
             alert("Datos Incorrectos");
@@ -56,7 +57,7 @@ function guardar(){ //FUNUCION QUE GUARDA EN LOCALSTORAGE EL REGISTRO
     nombre = document.getElementById('nombre').value;
     correo = document.getElementById('correo').value;
     pass = document.getElementById('pass').value;
-    direccion = document.getElementById('direccion').value;
+    direccion = document.getElementById('dir1').value;
     telefono = document.getElementById('telefono').value;
     if (escorreo(correo) && pass.length>6 && estelefono(telefono) && direccion.length>0 && nombre.length>0) {
         localStorage.setItem('nombre',nombre);
@@ -117,4 +118,95 @@ function guardarNuevo(){ //funcion para guardar los datos al localstorage en usu
     }
 
     alert("Datos Cambiados Exitosamente!")
+}
+
+function cargarDatosReg(){
+    if(localStorage.getItem('sesion')==false){
+    nombre = localStorage.getItem('nombre');
+    correo = localStorage.getItem('correo');
+    pass = localStorage.getItem('password');
+    dir1 = localStorage.getItem('dir1');
+    if (nombre!=null){
+        document.getElementById('nombre').value=nombre;
+    }
+    if (correo!=null){
+        document.getElementById('correo').value=correo;
+    }
+    if (pass!=null){
+        document.getElementById('pass').value=pass;
+    }
+    if (dir1!=null){
+        document.getElementById('dir1').value=dir1;
+    }
+}
+}
+
+function cerrarSesion(){
+    localStorage.setItem('sesion',false);
+    pagina('index.html');
+}
+
+function irAMapa(id){
+    localStorage.setItem('dirACamb',id);
+    pagina('mapa.html');
+}
+
+function agregarcarrito(i){
+    if(localStorage.getItem("cant"+i)==null){
+        localStorage.setItem("cant"+i,0);
+    }
+    var cantidad = parseInt(localStorage.getItem("cant"+i));
+    cantidad = cantidad+1;
+    localStorage.setItem("cant"+i,cantidad);
+    window.navigator.vibrate(100);
+}
+
+function cargarCarrito(){
+    var cant = new Array;
+    var ordenActual = 0;
+    if(!localStorage.getItem('cantOrdenes')){
+        localStorage.setItem('cantOrdenes',0);
+    }
+    cant[0] = localStorage.getItem('canthamburguesa');
+    cant[1] = localStorage.getItem('cantpizza');
+    cant[2] = localStorage.getItem('cantensalada');
+    cant[3] = localStorage.getItem('cantribeye');
+    cant[4] = localStorage.getItem('cantenchilada');
+    cant[5] = localStorage.getItem('cantmollete');
+    cant[6] = localStorage.getItem('cantquesadilla');
+
+    localStorage.setItem('plat0',"Hamburguesa");
+    localStorage.setItem('plat1',"Pizza");
+    localStorage.setItem('plat2',"Ensalada");
+    localStorage.setItem('plat3',"Rib-Eye");
+    localStorage.setItem('plat4',"Enchiladas");
+    localStorage.setItem('plat5',"Molletes");
+    localStorage.setItem('plat6',"Quesadillas");
+
+    localStorage.setItem('prec0',"79");
+    localStorage.setItem('prec1',"49");    
+    localStorage.setItem('prec2',"85");
+    localStorage.setItem('prec3',"245");
+    localStorage.setItem('prec4',"120");
+    localStorage.setItem('prec5',"39");
+    localStorage.setItem('prec6',"30");
+
+    divPrinc=document.getElementById('carr');
+
+    totActual=0;
+    ordenActual=parseInt(localStorage.getItem('cantOrdenes'))+1;
+
+    for(x=0;x<7;x++){
+        if(cant[x]>0){
+            divPrinc.innerHTML+='<div class="elemento"><div class="elemento-titulo">'+localStorage.getItem('plat'+x)+' x '+cant[x]+'</div> <div class="elemento-precio"> $'+(parseInt(localStorage.getItem('prec'+x)))*cant[x]+'</div></div>'
+            totActual=totActual+(parseInt(localStorage.getItem('prec'+x)))*cant[x];
+        }
+    }
+    localStorage.setItem('totalActual',totActual);
+    divPrinc.innerHTML+= '<div class="elemento"><div class="elemento-date"> No.Orden '+ordenActual+'</div> <div class="elemento-precio"> $'+localStorage.getItem('totalActual')+'</div></div> <div class="divboton"><button onclick="cobrar('+ordenActual+')">Cobrar</button></div>';
+    
+}
+
+function cobrar(e){
+    alert(e);
 }

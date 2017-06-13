@@ -28,4 +28,14 @@
             </div>
         </div>
     </body>
+
+<script>
+    window.onload=validar();
+
+    function validar(){
+        if (localStorage.getItem('sesion')==false){
+            pagina('principal.php');
+        }
+    }
+</script>
 </html>
