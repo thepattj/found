@@ -97,11 +97,13 @@
       alert("No se pudo encontrar la ubicacion"+status);
     }
   }
+
 function guardarDir(){
   direccioNueva=document.getElementById("dirr").value;
   idDir=localStorage.getItem('dirACamb');
   localStorage.setItem(idDir,direccioNueva);
-  window.history.back();
+  r = localStorage.getItem('regreso');
+  pagina(r);
 }
   
 </script>

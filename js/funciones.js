@@ -121,7 +121,6 @@ function guardarNuevo(){ //funcion para guardar los datos al localstorage en usu
 }
 
 function cargarDatosReg(){
-    if(localStorage.getItem('sesion')==false){
     nombre = localStorage.getItem('nombre');
     correo = localStorage.getItem('correo');
     pass = localStorage.getItem('password');
@@ -139,16 +138,16 @@ function cargarDatosReg(){
         document.getElementById('dir1').value=dir1;
     }
 }
-}
 
 function cerrarSesion(){
-    localStorage.setItem('sesion',false);
+    localStorage.clear();
     pagina('index.html');
 }
 
-function irAMapa(id){
+function irAMapa(id,r){
     localStorage.setItem('dirACamb',id);
     pagina('mapa.html');
+    localStorage.setItem('regreso',r)
 }
 
 function agregarcarrito(i){
