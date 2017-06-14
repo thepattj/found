@@ -138,9 +138,13 @@ p {
     font-size: 1.1em;
     color: #fff;
 }
+.alerta>h5{
+    font-size: .6em;
+    color: #fff;
+}
 
 .veralert{
-    top: 0;
+    top: 0 !important;
     display: block;
     /*agregar un poco de efecto*/
 }

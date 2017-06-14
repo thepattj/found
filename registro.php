@@ -26,8 +26,8 @@
             <div class="div8"><input type="text" placeholder="ejemplo@servidor.com" id="correo"> </div>
             <div class="div12"></div>
 
-            <div class="div4">Contrasena</div><div class="div4"></div>
-            <div class="div8"><input type="password" placeholder="Al menos 6 caracteres" id="pass"> </div>
+            <div class="div4">Contraseña</div><div class="div4"></div>
+            <div class="div8"><input type="password" placeholder="Al menos 7 caracteres" id="pass"> </div>
             <div class="div12"></div>
 
             <div class="div4">Dirección</div>
@@ -35,7 +35,7 @@
             <!-- AQUI DEBES PONER EN VEZ DE ONCLICK="GETDIRECCION" PONES UN ONCLICK="PAGINA('MAPA.HTML')" -->
             <div class="div12"></div>
 
-            <div class="div4">Numero Telefonico</div>
+            <div class="div4">Número Tel.</div>
             <div class="div8"><input maxlength="25" type="text" placeholder="10 Digitos" id="telefono"></div>
             <div class="div12"></div>
 

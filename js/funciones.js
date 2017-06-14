@@ -222,7 +222,7 @@ function cargarCarrito(){
         }
     }
     localStorage.setItem('totalActual',totActual);
-    divPrinc.innerHTML+= '<div class="elemento1"><div class="elemento-date"> No.Orden '+ordenActual+'</div> <div class="elemento-precio"> $'+localStorage.getItem('totalActual')+'</div></div> <div class="divboton"><button onclick="cobrar('+ordenActual+')">Cobrar</button></div>';
+    divPrinc.innerHTML+= '<div class="elemento1"><div class="elemento-date"> No.Orden '+ordenActual+'</div> <div class="elemento-precio"> $'+localStorage.getItem('totalActual')+'</div></div> <div class="divboton"><button onclick="cobrar('+ordenActual+')">Pagar</button></div>';
     }
 }
 
