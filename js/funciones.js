@@ -181,6 +181,7 @@ function cargarCarrito(){
     cant[5] = localStorage.getItem('cantmollete');
     cant[6] = localStorage.getItem('cantquesadilla');
 
+    var elem= ['hamburguesa','pizza','ensalada','ribeye','enchilada','mollete','quesadilla'];
     if(cant.every(estaVacio)){
         divPrinc=document.getElementById('carr');
         divPrinc.innerHTML+= '<div class="elemento"> Carrito Vacio </div>';
@@ -216,7 +217,7 @@ function cargarCarrito(){
 
     for(x=0;x<7;x++){
         if(cant[x]>0){
-            divPrinc.innerHTML+='<div class="elemento1"><div class="elemento-titulo">'+localStorage.getItem('plat'+x)+' <button id="menos" onclick="menus()""> - </button> x '+cant[x]+'</div> <div class="elemento-precio"> $'+(parseInt(localStorage.getItem('prec'+x)))*cant[x]+'</div></div>'
+            divPrinc.innerHTML+='<div class="elemento1"><div class="elemento-titulo">'+localStorage.getItem('plat'+x)+' <button id="menos" onclick="restar('+"'"+elem[x]+"'"+')""> - </button> x '+cant[x]+'</div> <div class="elemento-precio"> $'+(parseInt(localStorage.getItem('prec'+x)))*cant[x]+'</div></div>'
             totActual=totActual+(parseInt(localStorage.getItem('prec'+x)))*cant[x];
         }
     }
@@ -230,8 +231,9 @@ function cobrar(e){
     ordenes = parseInt(localStorage.getItem('cantOrdenes'));
     ordenes = ordenes+1;
     var fecha = new Date();
+    fechaBien = fecha.toUTCString();
     localStorage.setItem('cantOrdenes',ordenes);
-    localStorage.setItem('fechaOrden'+ordenes,fecha);
+    localStorage.setItem('fechaOrden'+ordenes,fechaBien);
     localStorage.setItem('precioOrden'+ordenes,localStorage.getItem('totalActual'));
     //limpiando los datos de esa orden
     localStorage.setItem('canthamburguesa',0);
@@ -241,27 +243,49 @@ function cobrar(e){
     localStorage.setItem('cantmollete',0);
     localStorage.setItem('cantquesadilla',0);
     localStorage.setItem('cantribeye',0);
-    console.log(localStorage.getItem('precioOrden'+ordenes));
 }
 
 function estaVacio(cant){
-    return cant==null;
+    return cant==null || cant==0;
 }
 
 function cargarPedidos(){
     divPrinc=document.getElementById('ped')
-    if(localStorage.getItem('cantOrdenes')==0){
+    if(localStorage.getItem('cantOrdenes')==0 || !localStorage.getItem('cantOrdenes')){
         divPrinc.innerHTML+='<div class="elemento">No hay historial de ordenes</div>';
     }else{
         cantOrdenes=parseInt(localStorage.getItem('cantOrdenes'));
         for(x=1;x<=cantOrdenes;x++){
-            divPrinc.innerHTML+='<div class="elemento"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date">'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" onclick="enviado()"><img src="img/envio3.png"> </div> </div>';
+            divPrinc.innerHTML+='<div class="elemento" id="orden'+x+'"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+x+"'"+')"><img src="img/envio3.png"> </div> </div>';
+            if(localStorage.getItem('statusOrden'+x)=="recibido"){
+                elemento = document.getElementById('orden'+x);
+                elemento.innerHTML+='<div class="elemento-date">Recibido :'+localStorage.getItem('recibidoOrden'+x)+'</div>'
+            }
         }
 
 
     }
 }
 
-function enviado(){
+function enviado(pedido){
+    if(!localStorage.getItem('recibidoOrden'+pedido)){
     verAlerta('Has recibido tu comida, gracias por usar found food');
+    localStorage.setItem('statusOrden'+pedido,"recibido");
+    var fecha = new Date();
+    fechaBien = fecha.toUTCString();
+    localStorage.setItem('recibidoOrden'+pedido,fechaBien)
+    elemento = document.getElementById('orden'+pedido);
+    elemento.innerHTML+='<div class="elemento-date">Recibido :'+localStorage.getItem('recibidoOrden'+pedido)+'</div>'
+    }else{
+        verAlerta('Este pedido ya fue recibido el '+localStorage.getItem('recibidoOrden'+pedido));
+    }
+}
+
+function restar(elemento){
+    original = localStorage.getItem('cant'+elemento);
+    localStorage.setItem('cant'+elemento,original-1);
+    verAlerta('Elemento borrado del carrito');
+    setTimeout( function(){
+    location.reload();
+    },1000);
 }
