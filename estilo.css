@@ -120,6 +120,31 @@ p {
     transition: all 1.5s;
 }
 
+.alerta{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: -60 !important;
+    box-sizing: border-box;
+    left: 0px;
+    background: #FF9966;
+    height: 40px;
+    z-index: 99999999999999;
+    display: none;
+}
+
+.alerta>h1{
+    font-size: 1.1em;
+    color: #fff;
+}
+
+.veralert{
+    top: 0;
+    display: block;
+    /*agregar un poco de efecto*/
+}
+
 nav{
     width: 100%;
     height: 30px;
@@ -364,11 +389,27 @@ nav{
 }
 
 .elemento-date{
-    width: 100%;
+    width: 75%;
     height: 40px;
     float: left;
     position: relative;
     background: pink;
+}
+
+.elemento-butt{
+    width: 25%;
+    height: 40px;
+    float: left;
+    position: relative;
+    background: #66CC99;
+}
+
+.elemento-butt img{
+    width: 40px;
+    height: 40px;
+    float: left;
+    position: relative;
+    margin-left: 25px;
 }
 
 /*=================================CARRITO.html==============================*/
@@ -397,11 +438,25 @@ nav{
 }
 
 .divboton{
-    width: 100%;
+    width: 55%;
     position: absolute;
     float: left;
     z-index: 99;
     top: 85%;
+    left: 115px;
+}
+
+.elemento1{
+    width: 100%;
+    height: 45px;
+    background-color: #FF9966;
+    position: relative;
+    top: 100px;
+}
+
+#menos{
+    width: 14%;
+    height: 32px;
 }
 
 /*==============mapa.php==================*/
@@ -435,6 +490,7 @@ nav{
     /*background-color: red !important;*/
     left: 74.25%;
 }
+
 .buscador input{
     width: 100%;
 }

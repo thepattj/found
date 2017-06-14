@@ -12,6 +12,7 @@
 </nav>-->
 
 <body>
+<div class="alerta"><h1 id="alertaContenido"> </h1> </div>
     <div class="pantalla-reg">
        <div class="div3"></div><div class="div4"><h2>REGISTRATE</h2></div><div class="div4"></div><div class="div12"></div>
        <div class="filtro"></div>

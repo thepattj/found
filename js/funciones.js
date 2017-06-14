@@ -2,6 +2,14 @@ function pagina(liga){
     window.location.assign(liga);
 }
 
+function verAlerta(contenido){
+    document.getElementById('alertaContenido').innerHTML = contenido;
+    document.querySelector('.alerta').classList.add('veralert');
+    setTimeout(function(){
+        document.querySelector('.alerta').classList.remove('veralert')
+    },3000);
+}
+
 function inicio() {    //FUNCION PARA HACER LA TRANSICION DEL CONTENIDO DE INICIAR SESION
     paginaInicio = document.querySelector(".contenido");
     paginaSesion = document.querySelector(".sesion");
@@ -16,11 +24,12 @@ function login(){ //FUNCION PARA PODER INICIAR SESION
     pass = document.getElementById('pass').value;
     if (escorreo(correo) && pass.length>0){
         if(correo==localStorage.getItem('correo') && pass==localStorage.getItem('password')){
-            alert("Bienvenido "+localStorage.getItem('nombre'));
+            /*alert();*/
+            verAlerta("Bienvenido "+localStorage.getItem('nombre'));
             localStorage.setItem('sesion',true);
             window.location.assign('principal.php');
         }else{
-            alert("Datos Incorrectos");
+            verAlerta("Datos Incorrectos");
         }
     }
 }
@@ -65,11 +74,12 @@ function guardar(){ //FUNUCION QUE GUARDA EN LOCALSTORAGE EL REGISTRO
         localStorage.setItem('password',pass);
         localStorage.setItem('dir1',direccion);
         localStorage.setItem('telefono',telefono);
-        alert("Registro Exitoso!");
+        verAlerta('Registro correcto');
+        /*alert("Registro Exitoso!");*/
         window.location.assign('index.html');
     }
     else{
-        alert("nel");
+        verAlerta('Verifica tus datos');
     }
 }
 
@@ -116,8 +126,7 @@ function guardarNuevo(){ //funcion para guardar los datos al localstorage en usu
     if(dir3.length>0){
         localStorage.setItem('dir3',dir3);
     }
-
-    alert("Datos Cambiados Exitosamente!")
+    verAlerta('Datos Guardados Exitosamente');
 }
 
 function cargarDatosReg(){
@@ -158,6 +167,7 @@ function agregarcarrito(i){
     cantidad = cantidad+1;
     localStorage.setItem("cant"+i,cantidad);
     window.navigator.vibrate(100);
+    verAlerta('Agregado a carrito');
 }
 
 function cargarCarrito(){
@@ -206,16 +216,17 @@ function cargarCarrito(){
 
     for(x=0;x<7;x++){
         if(cant[x]>0){
-            divPrinc.innerHTML+='<div class="elemento"><div class="elemento-titulo">'+localStorage.getItem('plat'+x)+' x '+cant[x]+'</div> <div class="elemento-precio"> $'+(parseInt(localStorage.getItem('prec'+x)))*cant[x]+'</div></div>'
+            divPrinc.innerHTML+='<div class="elemento1"><div class="elemento-titulo">'+localStorage.getItem('plat'+x)+' <button id="menos" onclick="menus()""> - </button> x '+cant[x]+'</div> <div class="elemento-precio"> $'+(parseInt(localStorage.getItem('prec'+x)))*cant[x]+'</div></div>'
             totActual=totActual+(parseInt(localStorage.getItem('prec'+x)))*cant[x];
         }
     }
     localStorage.setItem('totalActual',totActual);
-    divPrinc.innerHTML+= '<div class="elemento"><div class="elemento-date"> No.Orden '+ordenActual+'</div> <div class="elemento-precio"> $'+localStorage.getItem('totalActual')+'</div></div> <div class="divboton"><button onclick="cobrar('+ordenActual+')">Cobrar</button></div>';
+    divPrinc.innerHTML+= '<div class="elemento1"><div class="elemento-date"> No.Orden '+ordenActual+'</div> <div class="elemento-precio"> $'+localStorage.getItem('totalActual')+'</div></div> <div class="divboton"><button onclick="cobrar('+ordenActual+')">Cobrar</button></div>';
     }
 }
 
-function cobrar(e){ 
+function cobrar(e){
+    verAlerta('Agregado a pedidos'); 
     ordenes = parseInt(localStorage.getItem('cantOrdenes'));
     ordenes = ordenes+1;
     var fecha = new Date();
@@ -244,9 +255,13 @@ function cargarPedidos(){
     }else{
         cantOrdenes=parseInt(localStorage.getItem('cantOrdenes'));
         for(x=1;x<=cantOrdenes;x++){
-            divPrinc.innerHTML+='<div class="elemento"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date">'+localStorage.getItem('fechaOrden'+x)+'</div></div>';
+            divPrinc.innerHTML+='<div class="elemento"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date">'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" onclick="enviado()"><img src="img/envio3.png"> </div> </div>';
         }
 
 
     }
+}
+
+function enviado(){
+    verAlerta('Has recibido tu comida, gracias por usar found food');
 }
