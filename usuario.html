@@ -7,10 +7,6 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <script src="js/funciones.js"></script>
 </head>
-<nav>
-   <img id="ima1" onclick="pagina('principal.php')" src="img/atras1.png">
-</nav>
-
 <body>
     <div class="pantalla-reg">
        <div class="div3"></div><div class="div8"><h2>Datos de Usuario</h2></div><div class="div12"></div>
@@ -41,11 +37,25 @@
             <div class="div12"></div>
 
             <div class="div12"></div>
-            <div class="div4"></div><div class="div6"><button onclick="guardarNuevo()">Guardar</button></div>
-            <div class="div6"><button onclick="cerrarSesion()">Cerrar Sesion</button></div>
+            <div class="div2"></div><div class="div5"><button onclick="guardarNuevo()">Guardar</button></div>
+            <div class="div5"><button onclick="cerrarSesion()">Salir</button></div>
         </form>
     </div>
 </body>
+<footer>
+    <div class="div3">
+        <img onclick="pagina('menu.html')" id="imagenb" src="img/food1.png">
+    </div>
+    <div class="div3">
+        <img onclick="pagina('pedido.html')" id="imagenl" src="img/list4.png">
+    </div>
+    <div class="div3">
+        <img onclick="pagina('carrito.html')" id="imagens" src="img/car2.png">
+    </div>
+    <div class="div3">
+        <img onclick="pagina('principal.php')" id="imagenr" src="img/atras1.png">
+    </div>
+</footer>
 <script>
     window.addEventListener('load',cargarDatos,true);
 </script>
