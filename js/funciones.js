@@ -161,11 +161,8 @@ function agregarcarrito(i){
 }
 
 function cargarCarrito(){
+
     var cant = new Array;
-    var ordenActual = 0;
-    if(!localStorage.getItem('cantOrdenes')){
-        localStorage.setItem('cantOrdenes',0);
-    }
     cant[0] = localStorage.getItem('canthamburguesa');
     cant[1] = localStorage.getItem('cantpizza');
     cant[2] = localStorage.getItem('cantensalada');
@@ -173,6 +170,18 @@ function cargarCarrito(){
     cant[4] = localStorage.getItem('cantenchilada');
     cant[5] = localStorage.getItem('cantmollete');
     cant[6] = localStorage.getItem('cantquesadilla');
+
+    if(cant.every(estaVacio)){
+        divPrinc=document.getElementById('carr');
+        divPrinc.innerHTML+= '<div class="elemento"> Carrito Vacio </div>';
+    }else{
+
+
+    var ordenActual = 0;
+    if(!localStorage.getItem('cantOrdenes')){
+        localStorage.setItem('cantOrdenes',0);
+    }
+
 
     localStorage.setItem('plat0',"Hamburguesa");
     localStorage.setItem('plat1',"Pizza");
@@ -203,9 +212,41 @@ function cargarCarrito(){
     }
     localStorage.setItem('totalActual',totActual);
     divPrinc.innerHTML+= '<div class="elemento"><div class="elemento-date"> No.Orden '+ordenActual+'</div> <div class="elemento-precio"> $'+localStorage.getItem('totalActual')+'</div></div> <div class="divboton"><button onclick="cobrar('+ordenActual+')">Cobrar</button></div>';
-    
+    }
 }
 
-function cobrar(e){
-    alert(e);
+function cobrar(e){ 
+    ordenes = parseInt(localStorage.getItem('cantOrdenes'));
+    ordenes = ordenes+1;
+    var fecha = new Date();
+    localStorage.setItem('cantOrdenes',ordenes);
+    localStorage.setItem('fechaOrden'+ordenes,fecha);
+    localStorage.setItem('precioOrden'+ordenes,localStorage.getItem('totalActual'));
+    //limpiando los datos de esa orden
+    localStorage.setItem('canthamburguesa',0);
+    localStorage.setItem('cantpizza',0);
+    localStorage.setItem('cantensalada',0);
+    localStorage.setItem('cantenchilada',0);
+    localStorage.setItem('cantmollete',0);
+    localStorage.setItem('cantquesadilla',0);
+    localStorage.setItem('cantribeye',0);
+    console.log(localStorage.getItem('precioOrden'+ordenes));
+}
+
+function estaVacio(cant){
+    return cant==null;
+}
+
+function cargarPedidos(){
+    divPrinc=document.getElementById('ped')
+    if(localStorage.getItem('cantOrdenes')==0){
+        divPrinc.innerHTML+='<div class="elemento">No hay historial de ordenes</div>';
+    }else{
+        cantOrdenes=parseInt(localStorage.getItem('cantOrdenes'));
+        for(x=1;x<=cantOrdenes;x++){
+            divPrinc.innerHTML+='<div class="elemento"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date">'+localStorage.getItem('fechaOrden'+x)+'</div></div>';
+        }
+
+
+    }
 }

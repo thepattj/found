@@ -9,19 +9,8 @@
     <script src="js/funciones.js"></script>
 </head>
 <body>
-    <div class="pantalla-ped">
+    <div class="pantalla-ped" id="ped">
        <div class="divtitulop"> <h4>PEDIDOS</h4></div>
-        <div class="elemento">
-            <div class="elemento-titulo">
-                NOMBRE DE LA COMIDA
-            </div>
-            <div class="elemento-precio">
-                $XXX
-            </div>
-            <div class="elemento-date">
-                Fecha
-            </div>
-        </div>
     </div>
 </body>
 <footer>
@@ -38,4 +27,7 @@
         <img onclick="pagina('principal.php')" id="imagenr" src="img/atras1.png">
     </div>
 </footer>
+<script>
+    window.addEventListener('load',cargarPedidos,true);
+</script>
 </html>
