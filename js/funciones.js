@@ -1,9 +1,11 @@
 function pagina(liga){
-    window.location.assign(liga);
+    setTimeout(function(){
+    window.location.assign(liga);},1000);
 }
 
 function verAlerta(contenido){
     document.getElementById('alertaContenido').innerHTML = contenido;
+    window.navigator.vibrate(100);
     document.querySelector('.alerta').classList.add('veralert');
     setTimeout(function(){
         document.querySelector('.alerta').classList.remove('veralert')
@@ -27,10 +29,12 @@ function login(){ //FUNCION PARA PODER INICIAR SESION
             /*alert();*/
             verAlerta("Bienvenido "+localStorage.getItem('nombre'));
             localStorage.setItem('sesion',true);
-            window.location.assign('principal.php');
+            pagina('principal.php');
         }else{
             verAlerta("Datos Incorrectos");
         }
+    }else{
+        verAlerta("Ingresa tus Datos");
     }
 }
 
@@ -76,7 +80,7 @@ function guardar(){ //FUNUCION QUE GUARDA EN LOCALSTORAGE EL REGISTRO
         localStorage.setItem('telefono',telefono);
         verAlerta('Registro correcto');
         /*alert("Registro Exitoso!");*/
-        window.location.assign('index.html');
+        pagina('index.html');
     }
     else{
         verAlerta('Verifica tus datos');
@@ -134,17 +138,21 @@ function cargarDatosReg(){
     correo = localStorage.getItem('correo');
     pass = localStorage.getItem('password');
     dir1 = localStorage.getItem('dir1');
-    if (nombre!=null){
+    telefono = localStorage.getItem('telefono');
+    if (nombre){
         document.getElementById('nombre').value=nombre;
     }
-    if (correo!=null){
+    if (correo){
         document.getElementById('correo').value=correo;
     }
-    if (pass!=null){
+    if (pass){
         document.getElementById('pass').value=pass;
     }
-    if (dir1!=null){
+    if (dir1){
         document.getElementById('dir1').value=dir1;
+    }
+    if(telefono){
+        document.getElementById('telefono').value=telefono;
     }
 }
 
@@ -166,7 +174,6 @@ function agregarcarrito(i){
     var cantidad = parseInt(localStorage.getItem("cant"+i));
     cantidad = cantidad+1;
     localStorage.setItem("cant"+i,cantidad);
-    window.navigator.vibrate(100);
     verAlerta('Agregado a carrito');
 }
 
@@ -231,7 +238,7 @@ function cobrar(e){
     ordenes = parseInt(localStorage.getItem('cantOrdenes'));
     ordenes = ordenes+1;
     var fecha = new Date();
-    fechaBien = fecha.toUTCString();
+    fechaBien = fecha.toLocaleString();
     localStorage.setItem('cantOrdenes',ordenes);
     localStorage.setItem('fechaOrden'+ordenes,fechaBien);
     localStorage.setItem('precioOrden'+ordenes,localStorage.getItem('totalActual'));
@@ -243,6 +250,9 @@ function cobrar(e){
     localStorage.setItem('cantmollete',0);
     localStorage.setItem('cantquesadilla',0);
     localStorage.setItem('cantribeye',0);
+    setTimeout( function(){
+    location.reload();
+    },1000);
 }
 
 function estaVacio(cant){
@@ -272,7 +282,7 @@ function enviado(pedido){
     verAlerta('Has recibido tu comida, gracias por usar found food');
     localStorage.setItem('statusOrden'+pedido,"recibido");
     var fecha = new Date();
-    fechaBien = fecha.toUTCString();
+    fechaBien = fecha.toLocaleString();
     localStorage.setItem('recibidoOrden'+pedido,fechaBien)
     elemento = document.getElementById('orden'+pedido);
     elemento.innerHTML+='<div class="elemento-date">Recibido :'+localStorage.getItem('recibidoOrden'+pedido)+'</div>'
@@ -288,4 +298,27 @@ function restar(elemento){
     setTimeout( function(){
     location.reload();
     },1000);
+}
+
+function guardarTemp(){
+    nombre = document.getElementById('nombre').value;
+    correo = document.getElementById('correo').value;
+    pass = document.getElementById('pass').value;
+    direccion = document.getElementById('dir1').value;
+    telefono = document.getElementById('telefono').value;  
+    if(nombre){
+        localStorage.setItem('nombre',nombre);
+    }
+    if(correo){
+        localStorage.setItem('correo',correo);
+    }
+    if(pass){
+        localStorage.setItem('password',pass);
+    }
+    if(direccion){
+        localStorage.setItem('dir1',direccion);
+    }
+    if(telefono){
+        localStorage.setItem('telefono',telefono);
+    }
 }
