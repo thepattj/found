@@ -234,7 +234,7 @@ footer img{
 /*===================registro.php y usuario.html=============================*/
 .pantalla-reg{
     width: 100%;
-    height: calc(100% - 30px);
+    height: calc(100%);
     background-image: url('img/roman-arkhipov-123618.jpg');
     background-size: cover;
     color: #FFFFCC;

@@ -276,10 +276,14 @@ function cargarPedidos(){
         if(localStorage.getItem('statusOrden'+cantOrdenes)){
                 divPrinc.innerHTML+='<div  class="elemento" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> <div class="elemento-date" style="margin-bottom: 40px;">Recibido :'+localStorage.getItem('recibidoOrden'+cantOrdenes)+'</div></div>';
             }else{
-                divPrinc.innerHTML+='<div style="margin-bottom: 40px;" class="elemento" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" style="margin-bottom: 40px;"onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> </div>';
+                divPrinc.innerHTML+='<div  class="elemento" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" style="margin-bottom: 40px;"onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> </div>';
             }
     }else{
-        divPrinc.innerHTML+='<div class="elemento" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> </div>';
+        if(localStorage.getItem('statusOrden'+cantOrdenes)){
+                divPrinc.innerHTML+='<div  class="elemento" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> <div class="elemento-date" >Recibido :'+localStorage.getItem('recibidoOrden'+cantOrdenes)+'</div></div>';
+            }else{
+                divPrinc.innerHTML+='<div  class="elemento" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> </div>';
+            }
     }
     }
 }

@@ -36,7 +36,7 @@
             <div class="div12"></div>
 
             <div class="div4">Número Tel.</div>
-            <div class="div8"><input maxlength="25" type="text" placeholder="10 Digitos" id="telefono"></div>
+            <div class="div8"><input maxlength="25" type="number" placeholder="10 Digitos" id="telefono"></div>
             <div class="div12"></div>
 
             <div class="div12"></div>
