@@ -16,8 +16,6 @@
     <div class="pantalla-reg">
        <div class="div3"></div><div class="div4"><h2>REGISTRATE</h2></div><div class="div4"></div><div class="div12"></div>
        <div class="filtro"></div>
-       
-        <form onsubmit="return false">
             <div class="div4">Nombre</div>
             <div class="div8"><input type="text" placeholder="Nombre(s) Apellido" id="nombre"></div>
             <div class="div12"></div>
@@ -37,12 +35,9 @@
 
             <div class="div4">Número Tel.</div>
             <div class="div8"><input maxlength="25" type="number" placeholder="10 Digitos" id="telefono"></div>
-            <div class="div12"></div>
 
             <div class="div12"></div>
-            <div class="div3"></div><div class="div4"><button onclick="pagina('index.html')">Regresar</button></div><div class="div4"><button onclick="guardar()">Guardar</button></div>
-        </form>
-
+            <div class="div3"></div><div class="div4"><button onclick="pagina('index.html')">Regresar</button></div><div class="div4"><button onclick="guardar()">Guardar</button></div><div class="div1"></div>
     </div>
 </body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSMBr3VrhTjzUOGe0kKcOyj7u-h5--fok&callback=initMap"
