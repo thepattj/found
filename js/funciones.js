@@ -267,6 +267,12 @@ function cargarPedidos(){
         cantOrdenes=parseInt(localStorage.getItem('cantOrdenes'));
         for(x=1;x<=cantOrdenes;x++){
             divPrinc.innerHTML+='<div class="elemento" id="orden'+x+'"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+x+"'"+')"><img src="img/envio3.png"> </div> </div>';
+            
+            /*if(x == cantOrdenes){
+                divPrinc.innerHTML+='<div style="margin-bottom: 40px;" class="elemento" id="orden'+x+'"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+x+"'"+')"><img src="img/envio3.png"> </div> </div>';
+            }*/
+            
+            //ayudame a que cada vez que llegue al ultimo elemento tena este style porque eso hace que el footer no se vea mal.
             if(localStorage.getItem('statusOrden'+x)=="recibido"){
                 elemento = document.getElementById('orden'+x);
                 elemento.innerHTML+='<div class="elemento-date">Recibido :'+localStorage.getItem('recibidoOrden'+x)+'</div>'

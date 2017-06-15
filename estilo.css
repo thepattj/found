@@ -313,8 +313,7 @@ nav{
 }
 
 .divtitulom h4{
-    color: #FF9966;
-    
+    color: #FF9966;    
 }
 
 .elemento{
@@ -397,7 +396,7 @@ nav{
     height: 40px;
     float: left;
     position: relative;
-    background: pink;
+    background: #FFFFCC;
 }
 
 .elemento-butt{
