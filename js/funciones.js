@@ -158,6 +158,7 @@ function cargarDatosReg(){
 
 function cerrarSesion(){
     localStorage.clear();
+    verAlerta('Se borrara usuario')
     pagina('index.html');
 }
 
