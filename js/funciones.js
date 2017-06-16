@@ -269,6 +269,16 @@ function regreso(){
     document.querySelector('.pago').classList.remove('pver');
 }
 
+function efectivo(){
+    formaPago = document.getElementById('pago').value;
+    if(formaPago == 'cred'){
+        ter = document.getElementById('terminal');
+        ter.style="display: block;";
+    }else{
+        ter.style="display: none;";
+    }
+}
+
 function cobrar(){
     verAlerta('Agregado a pedidos'); 
     ordenes = parseInt(localStorage.getItem('cantOrdenes'));
@@ -304,21 +314,21 @@ function cargarPedidos(){
         if(cantOrdenes>1){//Si hay mas de una orden
         for(x=1;x<=cantOrdenes-1;x++){//Cada orden antes de la ultima            
             if(localStorage.getItem('statusOrden'+x)){//Si ya se recibio, con fecha de recibido
-                divPrinc.innerHTML+='<div class="elementoPedido" id="orden'+x+'"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+x+"'"+')"><img src="img/envio3.png"> </div> <div class="elemento-date">Recibido :'+localStorage.getItem('recibidoOrden'+x)+'</div></div>';
+                divPrinc.innerHTML+='<div class="elementoPedido" id="orden'+x+'"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" id="btn'+x+'" onclick="enviado('+"'"+x+"'"+')"><img src="img/envio3.png"> </div> <div class="elemento-date">Recibido :'+localStorage.getItem('recibidoOrden'+x)+'</div></div>';
             }else{//Si no se ha recibido sin fecha de recibido
-                divPrinc.innerHTML+='<div class="elementoPedido" id="orden'+x+'"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+x+"'"+')"><img src="img/envio3.png"> </div> </div>';
+                divPrinc.innerHTML+='<div class="elementoPedido" id="orden'+x+'"><div class="elemento-titulo"> Orden no.'+x+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+x)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+x)+'</div>  <div class="elemento-butt" id="btn'+x+'" onclick="enviado('+"'"+x+"'"+')"><img src="img/envio3.png"> </div> </div>';
             }
         }
         if(localStorage.getItem('statusOrden'+cantOrdenes)){//Para la ultima orden, aqui entra el margen bottom
-                divPrinc.innerHTML+='<div  class="elementoPedido" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> <div class="elemento-date" style="margin-bottom: 40px;">Recibido :'+localStorage.getItem('recibidoOrden'+cantOrdenes)+'</div></div>';
+                divPrinc.innerHTML+='<div  class="elementoPedido" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" id="btn'+cantOrdenes+'" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> <div class="elemento-date" style="margin-bottom: 40px;">Recibido :'+localStorage.getItem('recibidoOrden'+cantOrdenes)+'</div></div>';
             }else{
                 divPrinc.innerHTML+='<div  class="elementoPedido" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" id="btn'+cantOrdenes+'" style="margin-bottom: 40px;" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> </div>';
             }
     }else{//Si solo hay una orden
         if(localStorage.getItem('statusOrden'+cantOrdenes)){//Si la orden ya se recibio lo agrega con la fecha de recibido
-                divPrinc.innerHTML+='<div  class="elementoPedido" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> <div class="elemento-date" >Recibido :'+localStorage.getItem('recibidoOrden'+cantOrdenes)+'</div></div>';
+                divPrinc.innerHTML+='<div  class="elementoPedido" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" id="btn'+cantOrdenes+'" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> <div class="elemento-date" >Recibido :'+localStorage.getItem('recibidoOrden'+cantOrdenes)+'</div></div>';
             }else{
-                divPrinc.innerHTML+='<div  class="elementoPedido" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> </div>';
+                divPrinc.innerHTML+='<div  class="elementoPedido" id="orden'+cantOrdenes+'"><div class="elemento-titulo"> Orden no.'+cantOrdenes+'</div><div class="elemento-precio"> $'+localStorage.getItem('precioOrden'+cantOrdenes)+'</div><div class="elemento-date"> Pedido :'+localStorage.getItem('fechaOrden'+cantOrdenes)+'</div>  <div class="elemento-butt" id="btn'+cantOrdenes+'" onclick="enviado('+"'"+cantOrdenes+"'"+')"><img src="img/envio3.png"> </div> </div>';
             }
     }
     }

@@ -18,9 +18,15 @@
        <div class="divtituloc"> <h4>CARRITO</h4></div>
     </div>
     <div class="pago">
-        <div id="pver2" class="div12">Selecciona tu forma de pago</div>
-        <div class="div3"></div><div class="div5"><select><option style="display: none;">Selecciona</option><option>Efectivo</option><option>Tarjeta de Credito</option></select></div><div class="div4"></div>
-        <div style="display: none;" class="div12">El repartidos llevara la terminal</div>
+        <script>
+            direccion = localStorage.getItem('dir1');
+            telefono = localStorage.getItem('telefono');
+        </script>
+        <div  id="pver2" class="div12">Direccion: <script>document.write(direccion)</script></div>
+        <div class="div12">Telefono: <script>document.write(telefono)   </script> </div>
+        <div class="div12">Selecciona tu forma de pago</div>
+        <div class="div3"></div><div class="div5"><select id="pago" onchange="efectivo()"><option style="display: none;">Selecciona</option><option value="efec">Eféctivo</option><option value="cred">Tarjeta de Crédito</option></select></div><div class="div4"></div>
+        <div style="display: none;" id="terminal" class="div12">El repartidos llevara la terminal</div>
         <div class="div12"></div>
         <div class="div1"></div><div class="div5"><button onclick="cobrar()">Aceptar</button></div><div class="div1"></div><div class="div5"><button onclick="regreso()">Cancelar</button></div>
     </div>
