@@ -37,7 +37,7 @@
             <div class="div8"><input maxlength="25" type="number" placeholder="10 Digitos" id="telefono"></div>
 
             <div class="div12"></div>
-            <div class="div3"></div><div class="div4"><button onclick="pagina('index.html')">Regresar</button></div><div class="div4"><button onclick="guardar()">Guardar</button></div><div class="div1"></div>
+            <div class="div3"></div><div class="div4"><button onclick="pagina('index.html')">Regresar</button></div><div class="div4"><button onclick="guardar()">Registrar</button></div><div class="div1"></div>
     </div>
 </body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSMBr3VrhTjzUOGe0kKcOyj7u-h5--fok&callback=initMap"

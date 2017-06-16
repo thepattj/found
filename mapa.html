@@ -101,9 +101,14 @@
 function guardarDir(){
   direccioNueva=document.getElementById("dirr").value;
   idDir=localStorage.getItem('dirACamb');
-  localStorage.setItem(idDir,direccioNueva);
   r = localStorage.getItem('regreso');
+  if(r=='registro.php'){
+  localStorage.setItem(idDir+'Reg',direccioNueva);
+}else{
+  localStorage.setItem(idDir,direccioNueva);
+}
   pagina(r);
 }
+
   
 </script>

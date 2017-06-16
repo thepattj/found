@@ -78,6 +78,11 @@ function guardar(){ //FUNUCION QUE GUARDA EN LOCALSTORAGE EL REGISTRO
         localStorage.setItem('password',pass);
         localStorage.setItem('dir1',direccion);
         localStorage.setItem('telefono',telefono);
+        localStorage.removeItem('nombreReg');
+        localStorage.removeItem('correoReg');
+        localStorage.removeItem('passwordReg');
+        localStorage.removeItem('dir1Reg');
+        localStorage.removeItem('telefonoReg');
         verAlerta('Registro correcto');
         /*alert("Registro Exitoso!");*/
         pagina('index.html');
@@ -134,11 +139,11 @@ function guardarNuevo(){ //funcion para guardar los datos al localstorage en usu
 }
 
 function cargarDatosReg(){
-    nombre = localStorage.getItem('nombre');
-    correo = localStorage.getItem('correo');
-    pass = localStorage.getItem('password');
-    dir1 = localStorage.getItem('dir1');
-    telefono = localStorage.getItem('telefono');
+    nombre = localStorage.getItem('nombreReg');
+    correo = localStorage.getItem('correoReg');
+    pass = localStorage.getItem('passwordReg');
+    dir1 = localStorage.getItem('dir1Reg');
+    telefono = localStorage.getItem('telefonoReg');
     if (nombre){
         document.getElementById('nombre').value=nombre;
     }
@@ -319,18 +324,18 @@ function guardarTemp(){
     direccion = document.getElementById('dir1').value;
     telefono = document.getElementById('telefono').value;  
     if(nombre){
-        localStorage.setItem('nombre',nombre);
+        localStorage.setItem('nombreReg',nombre);
     }
     if(correo){
-        localStorage.setItem('correo',correo);
+        localStorage.setItem('correoReg',correo);
     }
     if(pass){
-        localStorage.setItem('password',pass);
+        localStorage.setItem('passwordReg',pass);
     }
     if(direccion){
-        localStorage.setItem('dir1',direccion);
+        localStorage.setItem('dir1Reg',direccion);
     }
     if(telefono){
-        localStorage.setItem('telefono',telefono);
+        localStorage.setItem('telefonoReg',telefono);
     }
 }
