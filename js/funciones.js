@@ -163,8 +163,30 @@ function cargarDatosReg(){
 
 function cerrarSesion(){
     localStorage.clear();
-    verAlerta('Se borrara usuario')
+    verAlerta('Se borro usuario')
     pagina('index.html');
+}
+
+function preSesion(){
+    document.querySelector('.alertaC').classList.add('veralertsesion');
+}
+
+function salirSi(){
+    pagina('index.html');
+}
+function salirNo(){
+    document.querySelector('.alertaC').classList.remove('veralertsesion');
+}
+
+function preBorrar(){
+    document.querySelector('.alertaB').classList.add('veralertsesion');
+}
+
+function borrarSi(){
+    cerrarSesion();
+}
+function borrarNo(){
+    document.querySelector('.alertaB').classList.remove('veralertsesion');
 }
 
 function irAMapa(id,r){
@@ -235,8 +257,16 @@ function cargarCarrito(){
         }
     }
     localStorage.setItem('totalActual',totActual);
-    divPrinc.innerHTML+= '<div class="elemento1"><div class="elemento-date"> No.Orden '+ordenActual+'</div> <div class="elemento-precio"> $'+localStorage.getItem('totalActual')+'</div></div> <div class="divboton"><button onclick="cobrar('+ordenActual+')">Pagar</button></div>';
+    divPrinc.innerHTML+= '<div class="elemento1"><div class="elemento-date"> No.Orden '+ordenActual+'</div> <div class="elemento-precio"> $'+localStorage.getItem('totalActual')+'</div></div> <div class="divboton"><button onclick="metodo()">Pagar</button></div>';
     }
+}                                                                                                                                                                                                                         /*onclick="cobrar('+ordenActual+')*/
+
+function metodo(){
+    document.querySelector('.pago').classList.add('pver');
+}
+
+function regreso(){
+    document.querySelector('.pago').classList.remove('pver');
 }
 
 function cobrar(e){

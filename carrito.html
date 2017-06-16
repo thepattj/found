@@ -10,8 +10,19 @@
 </head>
 <body>
 <div class="alerta"><h1 id="alertaContenido"> </h1> </div>
+<div class="alertaC">
+    <div class="div12">¿Deseas Cerrar Sesión?</div>
+    <div class="div1"></div><div class="div2"><button onclick="salirSi()">SI</button></div><div class="div5"></div><div class="div2"><button onclick="salirNo()">No</button></div>
+</div>
     <div class="pantalla-car" id="carr">
-       <div class="divtituloc"> <h4>A Cobrar</h4></div>
+       <div class="divtituloc"> <h4>CARRITO</h4></div>
+    </div>
+    <div class="pago">
+        <div id="pver2" class="div12">Selecciona tu forma de pago</div>
+        <div class="div3"></div><div class="div5"><select><option style="display: none;">Selecciona</option><option>Efectivo</option><option>Tarjeta de Credito</option></select></div><div class="div4"></div>
+        <div style="display: none;" class="div12">El repartidos llevara la terminal</div>
+        <div class="div12"></div>
+        <div class="div1"></div><div class="div5"><button onclick="cobrar()">Aceptar</button></div><div class="div1"></div><div class="div5"><button onclick="regreso()">Cancelar</button></div>
     </div>
 </body>
 <footer>
@@ -28,7 +39,7 @@
         <img onclick="pagina('principal.php')" id="imagenr" src="img/atras1.png">
     </div>
     <div class="divfooter">
-        <img onclick="pagina('index.html')" id="imagenr" src="img/atras2.png">
+        <img onclick="preSesion()" id="imagenr" src="img/atras2.png">
     </div>
 </footer>
 

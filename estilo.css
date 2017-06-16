@@ -85,6 +85,7 @@ h3 {
     color: #FFFFCC;
     float: left;
 }
+
 #segundo{
     margin-top: -23.9px;
 }
@@ -147,6 +148,39 @@ p {
     top: 0 !important;
     display: block;
     /*agregar un poco de efecto*/
+}
+
+.alertaC{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    /*top: -60 !important;*/
+    box-sizing: border-box;
+    left: 0px;
+    background: #FF9966;
+    height: 90px;
+    z-index: 99999999999999;
+    display: none
+}
+
+.alertaB{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    /*top: -60 !important;*/
+    box-sizing: border-box;
+    left: 0px;
+    background: #FF9966;
+    height: 90px;
+    z-index: 99999999999999;
+    display: none
+}
+
+.veralertsesion{
+    top: 0 !important;
+    display: block;
 }
 
 nav{
@@ -479,6 +513,45 @@ nav{
 #menos{
     width: 14%;
     height: 32px;
+}
+
+.pago{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    /*top: -60 !important;*/
+    box-sizing: border-box;
+    left: 0px;
+    background: #FF9966;
+    height: 500px;
+    z-index: 99999999999999;
+    display: none;
+    top: 0px;
+    font-size: 1.5em;
+}
+.pver{
+    display: block;
+    top: 100px;
+}
+#pver2{
+    margin-top: 160px;
+}
+
+.pago select{
+    float: left;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 200;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1.5px solid #6699CC;
+    background: rgba(255, 255, 255, .5);    
+    padding: 5px;
+    outline: none;  
+    transition: .5s all;
+    color:rgba(0,0,0,1);
+    width: 200px;  
 }
 
 /*==============mapa.php==================*/
