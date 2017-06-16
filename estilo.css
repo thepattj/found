@@ -337,7 +337,12 @@ nav{
     position: relative;
     top: 100px;
 }
-
+.elementoPedido{
+    width: 100%;
+    background-color: #FF9966;
+    position: relative;
+    top: 100px;
+}
 .elemento-titulo{
     width: 75%;
     height: 40px;
